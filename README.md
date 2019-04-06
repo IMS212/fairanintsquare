@@ -11,7 +11,6 @@ A 2D sidescrolling platform-shooter that adapts to playstyles of all kind
 - C to spawn NPC
 - V to delete NPC
 
------
 
 ## Meeting the Requirements 
 
@@ -32,11 +31,10 @@ You can refer <a href="https://www.sfml-dev.org/download.php">SFML's website</a>
 
 ### Windows 
 
-You will need to install <a href="http://www.mingw.org/">make</a> (MinGW) and <a href="https://cmake.org/download/">cmake</a> to build the project. Make sure **use mingw-make instead of make** throught this installation.
+You will need to install <a href="http://www.mingw.org/">make</a> (MinGW) and <a href="https://cmake.org/download/">cmake</a> to build the project. Make sure **use mingw-make instead of make** through out this installation.
 
 You need to  install the <a href="https://www.sfml-dev.org/download.php">SFML libraries</a> to compile the project.
 
------
 
 ## Building
 
@@ -58,7 +56,6 @@ make
 ```
 The executable will be inside the `build/bin` folder. The resources will be copied there automatically.
 
------
 
 ## Documentation
 
@@ -80,4 +77,4 @@ You can create the docs by running `doxygen` inside the root folder. All the doc
 
 We are open to contributions. If you wish to contribute start a issue. For discussions on the game, check out our <a href="https://discord.gg/VMFawez">discord server.</a>
 
-We are planning on adding tests soon.
+We are planning on adding unit tests and integration tests soon.
