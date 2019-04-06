@@ -1,7 +1,7 @@
 #include "text.hpp"
 #include <memory>
 
-std::vector<sf::Sprite> sq::writing::writeCharacters(const sf::Texture &font)
+std::vector<sf::Sprite> sq::writing::write_characters(const sf::Texture &font)
 {
     int originalX = posX;
     std::vector<sf::Sprite> container;
@@ -25,7 +25,7 @@ std::vector<sf::Sprite> sq::writing::writeCharacters(const sf::Texture &font)
     return container;
 }
 
-void sq::writing::setString(const std::string &input)
+void sq::writing::set_string(const std::string &input)
 {
     text = input;
     for (auto &it : text)
@@ -55,13 +55,13 @@ void sq::writing::setString(const std::string &input)
     sizeX *= 4;
 }
 
-std::string sq::writing::getString() const
+std::string sq::writing::get_string() const
 {
     return text;
 }
 
 //Maybe add stuff to move or squish when on the screen's edge
-void sq::writing::setPos(const int x, const int y)
+void sq::writing::set_pos(const int x, const int y)
 {
     posX = x;
     posY = y;
@@ -82,7 +82,7 @@ void sq::writing::show(sf::RenderWindow &window, const sf::Texture &font)
 
     //Write the text itself
     auto characters = std::make_unique<std::vector<sf::Sprite>>();
-    *characters = writeCharacters(font);
+    *characters = write_characters(font);
     window.draw(*base);
     for (auto &it : *characters)
     {
@@ -96,7 +96,8 @@ sq::writing::writing()
 
 sq::writing::writing(const std::string &&input, int x, int y)
 {
-    setString(input);
+    set_string(input);
     posX = x;
     posY = y;
 }
+ 

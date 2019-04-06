@@ -17,14 +17,14 @@ private:
   int posY = 0;
   unsigned int sizeX = 0;
   unsigned int sizeY = 0;
-  std::vector<sf::Sprite> writeCharacters(const sf::Texture &font);
+  std::vector<sf::Sprite> write_characters(const sf::Texture &font);
 
 public:
   writing();
   writing(const std::string &&input, int x, int y);
-  void setString(const std::string &input);
-  std::string getString() const;
-  void setPos(const int x, const int y);
+  void set_string(const std::string &input);
+  std::string get_string() const;
+  void set_pos(const int x, const int y);
   void show(sf::RenderWindow &window, const sf::Texture &font);
 };
 } // namespace sq

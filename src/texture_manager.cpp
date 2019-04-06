@@ -18,8 +18,8 @@ void sq::texture_manager::add_texture(const std::string &texture_name, const std
     auto new_texture = std::make_unique<sf::Texture>();
     if (!new_texture->loadFromFile(texture_location))
         throw resource_not_found(sq::resource_type::TEXTURE, texture_location);
-    auto texture_data = std::make_unique<TextureData>(std::move(new_texture), texture_location);
-    textures[texture_name] = std::move(texture_data);
+    auto txt_data = std::make_unique<sq::texture_data>(std::move(new_texture), texture_location);
+    textures[texture_name] = std::move(txt_data);
 }
 
 bool sq::texture_manager::is_texture_loaded(const std::string &texture_name) const

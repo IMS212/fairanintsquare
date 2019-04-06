@@ -1,11 +1,11 @@
 #include "tiles.hpp"
 
-int sq::tile::getXPos() const
+int sq::tile::get_pos_x() const
 {
     return base.getPosition().x;
 }
 
-int sq::tile::getYPos() const
+int sq::tile::get_pos_y() const
 {
     return base.getPosition().y;
 }
@@ -15,30 +15,30 @@ void sq::tile::show(sf::RenderWindow &window)
     window.draw(base);
 }
 
-void sq::tile::setTexture(const std::string &&name, const int posX, const int posY, const int sizeX, const int sizeY)
+void sq::tile::set_texture(const std::string &&name, const int posX, const int posY, const int sizeX, const int sizeY)
 {
     texture.loadFromFile(name);
     base.setTexture(&texture);
     base.setTextureRect(sf::IntRect(posX, posY, sizeX, sizeY));
 }
 
-void sq::tile::setTexture(const sf::Texture ptexture, const int posX, const int posY, const int sizeX, const int sizeY)
+void sq::tile::set_texture(const sf::Texture ptexture, const int posX, const int posY, const int sizeX, const int sizeY)
 {
     base.setTexture(&ptexture);
     base.setTextureRect(sf::IntRect(posX, posY, sizeX, sizeY));
 }
 
-void sq::tile::setColour(const unsigned int r, const unsigned int g, const unsigned int b)
+void sq::tile::set_colour(const unsigned int r, const unsigned int g, const unsigned int b)
 {
     base.setFillColor(sf::Color(r, g, b));
 }
 
-void sq::tile::setColour(const sf::Color &colour)
+void sq::tile::set_colour(const sf::Color &colour)
 {
     base.setFillColor(colour);
 }
 
-void sq::tile::setPosition(int t_x, int t_y)
+void sq::tile::set_position(int t_x, int t_y)
 {
     base.setPosition(sf::Vector2f(t_x, t_y));
 }

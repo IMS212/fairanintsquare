@@ -25,7 +25,7 @@ int main()
 
   std::vector<sq::npc> npcs;
   sq::player myPlayer(100, 100);
-  myPlayer.setColour(0, 255, 0);
+  myPlayer.set_colour(0, 255, 0);
 
   while (window.isOpen())
   {
@@ -72,7 +72,7 @@ int main()
     {
       sq::npc bob(rand() % 500, rand() % 500);
       npcs.push_back(bob);
-      npcs.back().setColour(rand() % 255, rand() % 255, rand() % 255);
+      npcs.back().set_colour(rand() % 255, rand() % 255, rand() % 255);
       //npcs.back().setTexture(npcTexture, 0, 0, 16, 16);
     }
 

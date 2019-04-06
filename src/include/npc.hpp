@@ -10,8 +10,8 @@ class npc : public tile
 private:
   std::string name;
   unsigned int speed = 1;
-  int maxSpeed = 6;
-  unsigned int runningSpeed = 6;
+  int max_speed = 6;
+  unsigned int running_speed = 6;
 
 public:
   sf::Vector2f movement = {0, 0};
@@ -23,11 +23,11 @@ public:
   npc(int t_x, int t_y);
   npc(int t_x, int t_y, std::string input);
   npc(std::string input);
-  unsigned int getSpeed() const;
-  void setSpeed(unsigned int input);
-  unsigned int getRunningSpeed();
-  void setRunningSpeed(unsigned int input);
-  void setName(std::string input);
+  unsigned int get_speed() const;
+  void set_speed(unsigned int input);
+  unsigned int get_running_speed();
+  void set_running_speed(unsigned int input);
+  void set_name(std::string input);
   virtual void up();
   virtual void down();
   virtual void left();
