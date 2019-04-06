@@ -13,7 +13,7 @@ std::size_t sq::texture_manager::size() const
 
 void sq::texture_manager::add_texture(const std::string &texture_name, const std::string &texture_location)
 {
-    if (textures.find(texture_location) != textures.end())
+    if (textures.find(texture_name) != textures.end())
         return;
     auto new_texture = std::make_unique<sf::Texture>();
     if (!new_texture->loadFromFile(texture_location))
