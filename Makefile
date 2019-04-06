@@ -2,9 +2,9 @@ CC = g++
 CFLAGS = -O3 -ffast-math
 VFLAGS = --std=c++17
 ifeq ($(OS), Windows_NT)
-    LDFLAGS = -pthread -DSFML_STATIC -I ./src/include -I SFML\include -L SFML\lib -lsfml-graphics-s -lsfml-window-s -lsfml-system-s -lopengl32 -lwinmm -lgdi32 -lfreetype -ljpeg
+    LDFLAGS = -pthread -DSFML_STATIC -I ./include -I SFML\include -L SFML\lib -lsfml-graphics-s -lsfml-window-s -lsfml-system-s -lopengl32 -lwinmm -lgdi32 -lfreetype -ljpeg
 else
-    LDFLAGS = -pthread -DSFML_STATIC -I ./src/include -I SFML\include -L SFML\lib -lsfml-graphics -lsfml-window -lsfml-system -lGL -lfreetype -ljpeg
+    LDFLAGS = -pthread -DSFML_STATIC -I ./include -I SFML\include -L SFML\lib -lsfml-graphics -lsfml-window -lsfml-system -lGL -lfreetype -ljpeg
 endif
 TARGET = fairAintSquare
 TARGET_DIR=./build/

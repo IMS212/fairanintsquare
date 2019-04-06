@@ -20,7 +20,7 @@ target_compile_options(${EXECUTABLE_NAME} PRIVATE
 -Wmain -Wunreachable-code -Wshadow -Wcast-align -Wswitch-default -Wswitch-enum)
 
 if(SFML_FOUND)
-  include_directories(${PROJECT_SOURCE_DIR}/src/include ${SFML_INCLUDE_DIR})
+  include_directories(${PROJECT_SOURCE_DIR}/include ${SFML_INCLUDE_DIR})
   target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES})
 endif()
 
