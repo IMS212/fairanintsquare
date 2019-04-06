@@ -14,9 +14,9 @@ A 2D sidescrolling platform-shooter that adapts to playstyles of all kind
 
 ## Meeting the Requirements 
 
-### Linux
+### Linux (Debian)
 
-Make sure all the development libraries are present. You can install the pakages from your package manager.
+Make sure all development libraries are present. You can install the packages from your package manager.
 
 ```
 sudo apt-get install libsfml-dev libjpeg-dev libfreetype6-dev
@@ -27,11 +27,11 @@ If you are using cmake,
 sudo apt-get install cmake
 ```
 
-You can refer <a href="https://www.sfml-dev.org/download.php">SFML's website</a> for instructions on installing the libraries on your variant.
+You can refer <a href="https://www.sfml-dev.org/download.php">SFML's website</a> for instructions on installing the libraries on your OS.
 
 ### Windows 
 
-You will need to install <a href="http://www.mingw.org/">make</a> (MinGW) and <a href="https://cmake.org/download/">cmake</a> to build the project. Make sure **use mingw-make instead of make** through out this installation.
+You will need to install <a href="http://www.mingw.org/">make</a> (MinGW) and <a href="https://cmake.org/download/">cmake</a> to build the project. Make sure to **use mingw-make instead of make** while building.
 
 You need to  install the <a href="https://www.sfml-dev.org/download.php">SFML libraries</a> to compile the project.
 
@@ -40,21 +40,21 @@ You need to  install the <a href="https://www.sfml-dev.org/download.php">SFML li
 
 ### Linux/Windows/Mac
 
-Clone the repository and run `make` within the project root. You can also download the zip file directly <a href="https://github.com/EdgeCutter/fairaintsquare/archive/master.zip">here</a> and skip this step if you don't want to download git on windows.
+Clone the repository and run `make` from the project root. You can also download the zip file <a href="https://github.com/EdgeCutter/fairaintsquare/archive/master.zip">directly</a> and skip this step if you wish to not download git.
 ```
 git clone https://github.com/EdgeCutter/fairaintsquare
 cd fairaintsquare
 make
 ```
-The executable will be built inside the builds folder. Also make sure to copy all the resources from `res` folder into `build`. (Will be automated soon.)
+The executable will be built inside the `build`. Also make sure to copy all the files from `res` to `build`. (Will be automated soon.)
 
-We are also experimenting with CMake, so you can also do it this way.
+We are also experimenting with CMake, so you can also build this way.
 ```
 cd build
 cmake ..
 make
 ```
-The executable will be inside the `build/bin` folder. The resources will be copied there automatically.
+The executable will be inside `build/bin`. The resource files will be copied there automatically.
 
 
 ## Documentation
@@ -75,6 +75,6 @@ You can create the docs by running `doxygen` inside the root folder. All the doc
 
 ## Contributing / Testing
 
-We are open to contributions. If you wish to contribute start a issue. For discussions on the game, check out our <a href="https://discord.gg/VMFawez">discord server.</a>
+We are open to contributions. If you wish to contribute, start an issue. For discussions on the game, check out our <a href="https://discord.gg/VMFawez">discord server.</a>
 
 We are planning on adding unit tests and integration tests soon.
