@@ -1,4 +1,4 @@
-#include "resource_exception.hpp"
+#include "resourceException.hpp"
 
 sq::resourceNotFound::resourceNotFound(sq::resourceType rtype, const std::string &rname) : std::runtime_error("Resource not found."),
                                                                                                 name(rname),
