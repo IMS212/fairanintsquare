@@ -14,66 +14,67 @@ namespace sq
  * @class animation
  * Class containing functions/classes that handle simple spritesheet animations.
  */
-class animation
-{
+
+class animation{
 private:
   /** The position of sprite in the spritesheet.*/
-  sf::Vector2u img_pos;
+  sf::Vector2u imagePosition;
   /** The size of the image in the spritesheet.*/
-  sf::Vector2u img_size;
+  sf::Vector2u imageSize;
   /** The number of frames in the animation.*/
-  int img_count;
+  unsigned int imageCount;
   /** The time taken to switch frames.*/
-  float switch_time;
+  double switchTime;
   /** The total time since last complete animation.*/
-  float total_time = 0.0f;
+  double totalTime = 0.0;
   /** The index of the current frame.*/
-  int current_img = 0;
+  unsigned int currentImage = 0;
   /** Flag that controls if the animation has stopped*/
   bool stopped = false;
-  
+
 public:
   /** The part of texture the current frame should display*/
-  sf::IntRect uv_rect;
+  sf::IntRect uvRect;
 
-  /** 
-   * @brief Constructor for the animation class
-   * @param img_pos The position of sprite in the spritesheet
-   * @param img_size The size of the image in the spritesheet. (Each frame has same size)
-   * @param img_count The number of frames in the animation
-   * @param switcht The time to switch frames
-  */
-  animation(const sf::Vector2u img_pos, const sf::Vector2u img_size, const int img_count, const float switcht);
-  
   /**
-   * @brief Updates the uv_rect to match the image for current frame.
-   * @param dt Time passed since last frame. 
+   * @brief Constructor for the animation class
+   * @param imagePosition The position of sprite in the spritesheet
+   * @param imageSize The size of the image in the spritesheet. (Each frame has same size)
+   * @param imageCount The number of frames in the animation
+   * @param switcht The time to switch frames
    */
-  void update(float dt);
+  animation(const sf::Vector2u &imagePosition, const sf::Vector2u &imageSize, const unsigned int imageCount, const double switcht);
+
+  /**
+   * @brief Updates the uvRect to match the image for current frame.
+   * @param dt Time passed since last frame.
+   */
+  void update(const double dt);
+
+  /**
+   * @brief Update the current frame image to the one supplied.
+   * @param imageIndex The index of the image.
+   */
+  void update(const unsigned int imageIndex);
 
   /**
    * @brief Sets the image position in the spritesheet.
    * @param pos The position of the image in the spritesheet.
    */
-  void set_img_pos(const sf::Vector2u &pos);
+
+  void setImagePosition(const sf::Vector2u &pos);
 
   /**
    * @brief Sets the current frame.
    * @param index The index of the frame in the spritesheet.
    */
-  void set_current_img(int index);
-
-  /**
-   * @brief Update the current frame image to the one supplied.
-   * @param img_index The index of the image.
-   */
-  void update(int img_index);
+  void setCurrentImage(const unsigned int index);
 
   /**
    * @brief Sets if the scene should be animated or not.
    * @param status Set to true if animation is to stop.
    */
-  void set_stopped(bool status);
+  void setStatus(const bool status);
 
   /**
    * @brief Returns if the image is being animated.

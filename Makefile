@@ -9,13 +9,13 @@ endif
 TARGET = fairAintSquare
 TARGET_DIR=./build/
 DTARGET = debug_fairAintSquare
-CDFLAGS = -g 
+CDFLAGS = -g
 WARNINGS = -Wall -Weffc++ -Wextra -Winit-self -Wzero-as-null-pointer-constant -Wnon-virtual-dtor -Winline -Wmissing-declarations -Wmissing-include-dirs -Wundef -Wredundant-decls -Wfloat-equal -Wmain -Wunreachable-code -Wshadow -Wcast-align -Wswitch-default -Wswitch-enum
 CPP = src/*.cpp
 
 all:
 	$(CC) $(WARNINGS) $(VFLAGS) $(CFLAGS) $(CPP) $(LDFLAGS) -o $(TARGET_DIR)$(TARGET)
-	
+
 windows:
 	$(CC) $(WARNINGS) $(VFLAGS) $(CFLAGS) $(CPP) $(LDFLAGS) -o $(TARGET_DIR)$(TARGET).exe
 
