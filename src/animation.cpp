@@ -1,49 +1,63 @@
 #include "animation.hpp"
 #include <iostream>
-
-sq::animation::animation(const sf::Vector2u &ipos, const sf::Vector2u &isize, const unsigned int icount, const double switcht)
-  : imagePosition(ipos),
-	imageSize(isize),
-	imageCount(icount),
-	switchTime(switcht),
-	uvRect(sf::IntRect(ipos.x,ipos.y,isize.x,isize.y))
-{}
-
-void sq::animation::update(const double dt){
-  totalTime += dt;
-  if (totalTime >= switchTime){
-	totalTime -= switchTime;
-	currentImage++;
-	if (currentImage >= imageCount){
-	  currentImage = 0;
-	}
-  }
-  if (!stopped){
-	uvRect.left = imagePosition.x + currentImage * uvRect.width;
-	uvRect.top = imagePosition.y;
-  }
+namespace sq {
+Animation::Animation(sf::Sprite& aniTarget, bool willLoop)
+    : target(aniTarget)
+    , loop(willLoop)
+    , frames()
+{
 }
 
-void sq::animation::update(const unsigned int imageIndex){
-  if (!stopped){
-	uvRect.left = imagePosition.x + imageIndex * uvRect.width;
-	uvRect.top = imagePosition.y;
-  }
+Animation::Animation(sf::Sprite& aniTarget,
+    std::vector<AnimationFrame>&& allFrames, bool willLoop)
+    : target(aniTarget)
+    , loop(willLoop)
+    , frames(std::move(allFrames))
+
+{
 }
 
-void sq::animation::setImagePosition(const sf::Vector2u &pos){
-  imagePosition.x = pos.x;
-  imagePosition.y = pos.y;
+void Animation::update(double dt)
+{
+    if (stopped)
+        return;
+    progress += dt;
+    while (progress >= frames[currentFrame].duration) {
+        progress -= frames[currentFrame].duration;
+        if ((currentFrame == frames.size() - 1) && !loop)
+            return; // If it's the last frame and loop is disabled return;
+        currentFrame = (currentFrame + 1) % frames.size();
+        target.setTextureRect(frames[currentFrame].uvRect);
+    }
 }
 
-void sq::animation::setCurrentImage(const unsigned int index){
-  currentImage = index;
+void Animation::addFrame(const AnimationFrame&& frame, std::size_t index)
+{
+    totalTime += frame.duration;
+    frames.insert(frames.begin() + index, std::move(frame));
 }
 
-void sq::animation::setStatus(const bool status){
-  stopped = status;
+void Animation::addFrame(const AnimationFrame&& frame)
+{
+    totalTime += frame.duration;
+    frames.push_back(std::move(frame));
 }
 
-bool sq::animation::status() const {
-  return stopped;
+void Animation::setCurrentFrame(std::size_t index)
+{
+    currentFrame = index;
+    target.setTextureRect(frames[index].uvRect);
 }
+
+bool Animation::status() const { return stopped; }
+void Animation::setStatus(bool status) { stopped = status; }
+
+bool Animation::isLooping() const { return loop; }
+void Animation::setLoop(bool loopStatus) { loop = loopStatus; }
+
+const std::vector<AnimationFrame>& Animation::getFrames() const
+{
+    return frames;
+}
+
+} // namespace sq

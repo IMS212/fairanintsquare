@@ -4,10 +4,11 @@ set(EXECUTABLE_NAME fairanintsquare)
 add_executable(
   ${EXECUTABLE_NAME} 
   main.cpp
+  game.cpp
   npc.cpp
   player.cpp
   text.cpp
-  tiles.cpp
+  tile.cpp
   texture_manager.cpp
   animation.cpp
   resource_exception.cpp
@@ -25,6 +26,6 @@ if(SFML_FOUND)
 endif()
 
 # Might need to copy resources at some point.
-FILE(COPY ${CMAKE_SOURCE_DIR}/res/fontT.png 
+FILE(COPY ${CMAKE_SOURCE_DIR}/res/font.png 
      DESTINATION ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
 

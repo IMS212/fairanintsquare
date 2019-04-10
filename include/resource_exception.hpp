@@ -8,53 +8,50 @@
 #include <stdexcept>
 #include <string>
 
-namespace sq
-{
+namespace sq {
 
 /** The types of resource the game uses. */
-enum resource_type
-{
-  /** A sfml texture object. */
-  TEXTURE,
+enum class ResourceType {
+    /** A sfml texture object. */
+    TEXTURE,
 };
 
 /**
- * @brief Class for managing resource_not_found exceptions.
+ * @brief Class for managing resourceNotFound exceptions.
  */
-class resource_not_found : public std::runtime_error
-{
+class ResourceNotFound : public std::runtime_error {
 private:
-  /** The identifier/name of the resource. */
-  std::string name;
-  /** The type of the resource. */
-  sq::resource_type type;
+    /** The identifier/name of the resource. */
+    std::string name;
+    /** The type of the resource. */
+    sq::ResourceType type;
 
 public:
-  /**
+    /**
    * @brief Constructs the exception.
    * @param rtype The resource type
    * @param rname The name/identifier of the resource.
    */
-  resource_not_found(sq::resource_type rtype, const std::string &rname);
+    ResourceNotFound(sq::ResourceType rtype, const std::string& rname);
 
-  /**
+    /**
    * @brief Constructs the exception.
    * @param rtype The resource type
    * @param rname The name/identifier of the resource.
    * @param msg The custom exception message.
    */
-  resource_not_found(sq::resource_type rtype, const std::string &msg, const std::string &rname);
+    ResourceNotFound(sq::ResourceType rtype, const std::string& msg, const std::string& rname);
 
-  /**
+    /**
    * @brief Returns the resource name.
    * @return The resource name.
    */
-  const std::string &get_resource_name() const;
+    const std::string& getResourceName() const;
 
-  /**
+    /**
    * @brief Returns the resource type.
    * @return The resource type.
    */
-  sq::resource_type get_resource_type() const;
+    sq::ResourceType getResourceType() const;
 };
 } // namespace sq

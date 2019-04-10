@@ -2,12 +2,12 @@
 #define PLAYER_H
 
 #include "npc.hpp"
-namespace sq{
-class player : public npc{
+namespace sq {
+class Player : public Npc {
 public:
-  player();
+    Player();
 
-  player(const int tX, const int tY);
+    Player(const int tX, const int tY);
 };
 } // namespace sq
 
